@@ -1,39 +1,37 @@
-# WeatherApp
-App de clima real-time creada con React, Next.js y Tailwind CSS que consume la API de OpenWeather
+# 🌦️ WeatherApp 
+Una aplicación meteorológica dinámica que consume datos en tiempo real de la API de OpenWeather. Proyecto enfocado en el manejo de estados asíncronos con React, arquitectura de componentes y diseño moderno.
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+> ⚠️ **Nota:** Esta aplicación se encuentra actualmente **en construcción**. Estoy trabajando en nuevas funcionalidades.
 
-## Getting Started
 
-First, run the development server:
+## 🚀 Tecnologías utilizadas
+* **React** (Hooks: useState, useEffect)
+* **Next.js** (App Router)
+* **Tailwind CSS** (Styling)
+* **OpenWeather API** (Data fetching)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🛠️ Instalación y Configuración
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Clona el repositorio:**
+   git clone https://github.com/MarioDR25/WeatherApp.git
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+2. **Instala las dependencias:**
+   npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. **Configura tu API Key:**
+   Crea un archivo .env.local en la raíz y añade tu llave:
+   NEXT_PUBLIC_WEATHER_KEY="{tu_api_key_aqui}"
 
-## Learn More
+4. **Inicia el servidor de desarrollo:**
+   npm run dev
 
-To learn more about Next.js, take a look at the following resources:
+## 📋 Funcionalidades
+* Consulta de clima por ciudades específicas en tiempo real.
+* Visualización dinámica mediante tarjetas (WeatherCards).
+* Interfaz totalmente responsive optimizada con Tailwind.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
+### 📝 Notas de Desarrollo
+Este proyecto utiliza un flujo de datos basado en componentes de React, donde el estado global de las ciudades se gestiona en la página principal y se distribuye a componentes especializados para el renderizado y la búsqueda.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Desarrollado por MarioDR25
