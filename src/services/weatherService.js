@@ -5,13 +5,16 @@ export async function getWeather(city, country) {
 
   try {
     const response = await fetch(`${API}?q=${city},${country}&appid=${API_KEY}&units=metric`);
-    if (!response.ok) throw new Error("No se pudo conectar con la API");
-    const data = await response.json();
+
+    if (!response.ok) {
+      console.warn(`City not found: ${city}`);
+      return null
+    }
+    return await response.json();
     
-    return data;
   } catch (error) {
 
-    console.error("Fallo en la misión:", error);
+    console.error("Request failed:", error);
     return null;
   }
 }
