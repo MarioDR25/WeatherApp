@@ -1,0 +1,22 @@
+[
+  { "id": 1, "name": "Bogota", "country": "CO" },
+  { "id": 2, "name": "Ciudad de Mexico", "country": "MX" },
+  { "id": 3, "name": "Buenos Aires", "country": "AR" },
+  { "id": 4, "name": "New York", "country": "US" },
+  { "id": 5, "name": "Miami", "country": "US" },
+  { "id": 6, "name": "Sao Paulo", "country": "BR" },
+  { "id": 7, "name": "Madrid", "country": "ES" },
+  { "id": 8, "name": "Barcelona", "country": "ES" },
+  { "id": 9, "name": "Paris", "country": "FR" },
+  { "id": 10, "name": "London", "country": "GB" },
+  { "id": 11, "name": "Berlin", "country": "DE" },
+  { "id": 12, "name": "Rome", "country": "IT" },
+  { "id": 13, "name": "Tokyo", "country": "JP" },
+  { "id": 14, "name": "Barrancabermeja", "country": "CO" },
+  { "id": 15, "name": "Beijing", "country": "CN" },
+  { "id": 16, "name": "Sydney", "country": "AU" },
+  { "id": 17, "name": "Skrobów", "country": "PL" },
+  { "id": 18, "name": "Dubai", "country": "AE" },
+  { "id": 19, "name": "Moscow", "country": "RU" },
+  { "id": 20, "name": "Varsovia", "country": "PL" }
+]
