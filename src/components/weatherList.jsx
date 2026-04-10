@@ -1,40 +1,65 @@
 "use client";
 import { useState, useEffect } from "react";
 import { getWeather } from "@/services/weatherService";
-import WeatherCard from "./weatherCard"
+import WeatherCard from "./weatherCard";
 import cities from "@/data/cities.json";
-
+import { Loader2 } from "lucide-react";
 
 export default function RenderWeather() {
-  const [ciudadesClima, setCiudadesClima] = useState([]);
-  const [cargando, setCargando] = useState(true);
+  const [weatherCities, setWeatherCities] = useState([]);
+  const [loading, setloading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    const cargarTodoElClima = async () => {
+    const getAllWeather = async () => {
       try {
-        const promesas = cities.map((ciudad) => getWeather(ciudad.name, ciudad.country));
+        let promises = [];
 
-        const resultados = await Promise.all(promesas);
-        console.log(resultados);
+        if(!searchTerm.trim()) {
+           promises = cities.map((city) => getWeather(city.name, city.country));
+        }else {
+          promises = [getWeather(searchTerm, "")]
+        }
 
-        setCiudadesClima(resultados.filter((res) => res !== null));
+        const result = await Promise.all(promises);
+        
+        setWeatherCities(result.filter((res) => res !== null));
       } catch (error) {
-        console.error("Error cargando el JSON:", error);
+        console.error("Error loading the JSON:", error);
       } finally {
-        setCargando(false);
+        setloading(false);
       }
     };
 
-    cargarTodoElClima();
-  }, []);
+    getAllWeather();
+  }, [searchTerm]);
 
-  if (cargando) return <p>Cargando...</p>;
+  if (loading)
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[60vh] w-full">
+        <Loader2 className="animate-spin text-sky-700" size={80}/>
+        <p className="text-center text-sky-700 text-xl">Espera un momento....</p>
+      </div>
+    );
 
   return (
-    <div className="grid grid-cols-4 gap-4 ">
-      {ciudadesClima.map((e) => (
-        <WeatherCard key={e.id} city={e}/>
-      ))}
+    <div className="flex flex-col gap-6 p-4">
+      <div className="flex justify-end w-full">
+        <div className="relative w-full max-w-sm">
+          <span className="absolute inset-y-0 right-4 flex items-center text-slate-400">🔍</span>
+          <input type="text" placeholder="Buscar city..." 
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+            className="w-full pr-12 pl-5 py-2 bg-white border-none rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all text-sky-700"
+            />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-4 gap-4 ">
+        {weatherCities.map((e) => (
+          <WeatherCard key={e.id} city={e} />
+        ))}
+      </div>
     </div>
   );
 }
