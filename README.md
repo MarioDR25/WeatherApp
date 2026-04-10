@@ -21,7 +21,7 @@ Una aplicación meteorológica dinámica que consume datos en tiempo real de la 
 3. **Configura tu API Key:**
    Crea un archivo .env.local en la raíz y añade tu llave:
    
-  ``` NEXT_PUBLIC_WEATHER_KEY="{tu_api_key_aqui}"```
+        ``` NEXT_PUBLIC_WEATHER_KEY="{tu_api_key_aqui}"```
 
 5. **Inicia el servidor de desarrollo:**
    npm run dev
